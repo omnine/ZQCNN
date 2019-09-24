@@ -22,13 +22,13 @@ int main()
 	mkl_set_num_threads(1);
 #endif
 	ZQ_FaceRecognizer* recognizer[1] = { 0 };
-	std::string prototxt_file = "model/mobilefacenet-res2-6-10-2-dim512.zqparams";
-	std::string caffemodel_file = "model/mobilefacenet-res2-6-10-2-dim512-emore.nchwbin";
+	std::string prototxt_file = "model/mobilefacenet-res2-6-10-2-dim128.zqparams";
+	std::string caffemodel_file = "model/mobilefacenet-res2-6-10-2-dim128-emore.nchwbin";
 	std::string out_blob_name = "fc5";
 	for (int i = 0; i < 1; i++)
 	{
-		std::string prototxt_file = "./model/mobilefacenet-res2-6-10-2-dim512.zqparams";
-		std::string caffemodel_file = "./model/mobilefacenet-res2-6-10-2-dim512-emore.nchwbin";
+		std::string prototxt_file = "./model/mobilefacenet-res2-6-10-2-dim128.zqparams";
+		std::string caffemodel_file = "./model/mobilefacenet-res2-6-10-2-dim128-emore.nchwbin";
 		std::string out_blob_name = "fc5";
 		ZQ_FaceRecognizerArcFaceZQCNN* pFaceZQCNN = new ZQ_FaceRecognizerArcFaceZQCNN();
 		if (!pFaceZQCNN->Init("", prototxt_file, caffemodel_file, out_blob_name))
