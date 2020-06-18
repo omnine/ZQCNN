@@ -1,4 +1,6 @@
 #if defined(_WIN32)
+#include "ZQ_FaceDatabaseMaker.h"
+#include "ZQ_FaceDetectorLibFaceDetect.h"
 #include "ZQ_FaceRecognizerArcFaceZQCNN.h"
 #include "ZQ_CNN_CompileConfig.h"
 #if ZQ_CNN_USE_BLAS_GEMM
@@ -13,6 +15,7 @@
 using namespace ZQ;
 using namespace cv;
 using namespace std;
+
 
 int main()
 {
@@ -52,18 +55,27 @@ int main()
 		if (recognizer[0]) delete recognizer[0];
 		return EXIT_FAILURE;
 	}
-/*
-	if (!_extract_feature_from_img(*detectors[id], *recognizers[id], filenames[i][j], feat, crop, err_code, err_msg, false))
+
+
+	std::vector<ZQ_FaceDetectorLibFaceDetect> detectors(1);
+
+	detectors[0].Init();
+
+
+
+
+	std::ostringstream oss;
+	ZQ_FaceFeature feat;
+	cv::Mat crop;
+	ZQ_FaceDatabaseMaker::ErrorCode err_code;
+	std::string err_msg;
+
+	if (!ZQ_FaceDatabaseMaker::_extract_feature_from_img(detectors[0], *recognizer[0], "data/00_.jpg", feat, crop, err_code, err_msg, false))
 	{
-#pragma omp critical
-		{
-			ErrorCodes.push_back(err_code);
-			error_messages.push_back(err_msg);
-		}
-		continue;
+		return EXIT_FAILURE;
 	}
 
-*/
+
 
 
 	Mat img0 = imread("data/00_.jpg");

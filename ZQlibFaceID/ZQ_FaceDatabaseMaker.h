@@ -95,7 +95,7 @@ namespace ZQ
 			return _detect_outliers_in_database(recognizers, src_root, max_thread_num, out_file);
 		}
 		
-	private:
+	public:
 	
 		static bool _make_database(std::vector<ZQ_FaceDetector*>& detectors, std::vector<ZQ_FaceRecognizer*> recognizers,
 			const std::string& database_root, const std::string& database_featsfile, const std::string& database_namesfile,
