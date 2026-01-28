@@ -1,3 +1,5 @@
+[English](README_en.md) | 中文
+
 # 简介
 
 ZQCNN是一款推理框架，可以在windows, linux 和 arm-linux下运行。同时有一些人脸检测、识别相关的demo。
